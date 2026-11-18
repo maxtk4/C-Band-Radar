@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "Custom Symbols and Footprints") (type "KiCad") (uri "${KIPRJMOD}/Custom Symbols and Footprints") (options "") (descr ""))
+)

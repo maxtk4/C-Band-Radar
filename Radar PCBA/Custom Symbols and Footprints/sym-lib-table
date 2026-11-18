@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "Custom Components") (type "KiCad") (uri "/Users/max/Documents/radar") (options "") (descr ""))
+)
