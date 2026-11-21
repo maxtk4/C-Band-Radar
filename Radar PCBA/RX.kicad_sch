@@ -1134,7 +1134,7 @@
 	)
 	(symbol
 		(lib_id "Custom Symbols and Footprints:MDB-73H+")
-		(at 121.92 76.2 0)
+		(at 125.73 76.2 0)
 		(unit 2)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1144,7 +1144,7 @@
 		(dnp no)
 		(uuid "04abe4e5-1545-4b9b-b257-5836c245a392")
 		(property "Reference" "U4"
-			(at 145.034 99.568 0)
+			(at 148.844 99.568 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1155,7 +1155,7 @@
 			)
 		)
 		(property "Value" "MDB-73H+"
-			(at 141.224 102.616 0)
+			(at 145.034 102.616 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1166,7 +1166,7 @@
 			)
 		)
 		(property "Footprint" "DG1847_MNC_MRN"
-			(at 121.92 76.2 0)
+			(at 125.73 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1178,7 +1178,7 @@
 			)
 		)
 		(property "Datasheet" "MDB-73H+"
-			(at 121.92 76.2 0)
+			(at 125.73 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1190,7 +1190,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 121.92 76.2 0)
+			(at 125.73 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1286,7 +1286,7 @@
 	)
 	(symbol
 		(lib_id "Custom Symbols and Footprints:MDB-73H+")
-		(at 121.92 60.96 0)
+		(at 125.73 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1297,7 +1297,7 @@
 		(fields_autoplaced yes)
 		(uuid "1fc2ea02-1799-43f9-af9c-8f204c9eded3")
 		(property "Reference" "U4"
-			(at 144.78 50.8 0)
+			(at 148.59 50.8 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1307,7 +1307,7 @@
 			)
 		)
 		(property "Value" "MDB-73H+"
-			(at 144.78 53.34 0)
+			(at 148.59 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1317,7 +1317,7 @@
 			)
 		)
 		(property "Footprint" "DG1847_MNC_MRN"
-			(at 121.92 60.96 0)
+			(at 125.73 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1329,7 +1329,7 @@
 			)
 		)
 		(property "Datasheet" "MDB-73H+"
-			(at 121.92 60.96 0)
+			(at 125.73 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1341,7 +1341,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 121.92 60.96 0)
+			(at 125.73 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1437,7 +1437,7 @@
 	)
 	(symbol
 		(lib_id "Custom Symbols and Footprints:LT6202CS8-PBF")
-		(at 45.72 73.66 0)
+		(at 199.39 77.47 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1448,7 +1448,7 @@
 		(fields_autoplaced yes)
 		(uuid "522c7940-8bbb-4859-a2b2-8c33e5fdf7b5")
 		(property "Reference" "U5"
-			(at 66.04 60.96 0)
+			(at 219.71 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1458,7 +1458,7 @@
 			)
 		)
 		(property "Value" "LT6202CS8-PBF"
-			(at 66.04 63.5 0)
+			(at 219.71 67.31 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1468,7 +1468,7 @@
 			)
 		)
 		(property "Footprint" "SO-8_S_LIT"
-			(at 45.72 73.66 0)
+			(at 199.39 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1480,7 +1480,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/620234fd.pdf"
-			(at 45.72 73.66 0)
+			(at 199.39 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1492,7 +1492,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 45.72 73.66 0)
+			(at 199.39 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1537,7 +1537,7 @@
 	)
 	(symbol
 		(lib_id "Custom Symbols and Footprints:TSY_83LN+")
-		(at 224.79 58.42 0)
+		(at 69.85 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1547,7 +1547,7 @@
 		(dnp no)
 		(uuid "ed52a8c4-8811-44fe-a00f-684870d01e81")
 		(property "Reference" "U3"
-			(at 204.47 58.42 0)
+			(at 49.53 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1557,7 +1557,7 @@
 			)
 		)
 		(property "Value" "TSY-83LN+"
-			(at 208.534 60.706 0)
+			(at 53.594 72.136 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1567,7 +1567,7 @@
 			)
 		)
 		(property "Footprint" "Package_DFN_QFN:QFN-12-1EP_3x3mm_P0.51mm_EP1.45x1.45mm"
-			(at 224.79 58.42 0)
+			(at 69.85 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1578,7 +1578,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.minicircuits.com/pdfs/TSY-83LN+.pdf"
-			(at 224.79 58.42 0)
+			(at 69.85 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1589,7 +1589,7 @@
 			)
 		)
 		(property "Description" "MMIC LNA (0.4 to 8 GHz)"
-			(at 224.79 58.42 0)
+			(at 69.85 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
