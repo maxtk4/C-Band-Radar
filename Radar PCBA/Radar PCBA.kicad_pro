@@ -661,13 +661,13 @@
         "uuid": "269b3493-ba15-4ba2-9b56-3ad17fb085f1"
       }
     ],
-    "used_designators": "XTAL1,U1-6",
+    "used_designators": "C1-3,#PWR1-7,XTAL1,U1-8",
     "variants": []
   },
   "sheets": [
     [
       "269b3493-ba15-4ba2-9b56-3ad17fb085f1",
-      "Root"
+      "Radar PCBA"
     ],
     [
       "b5f9ea37-f86a-45e7-850e-41cd05936b4f",
