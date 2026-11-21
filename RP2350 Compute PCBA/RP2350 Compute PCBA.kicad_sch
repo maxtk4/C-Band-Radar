@@ -8730,16 +8730,6 @@
 		)
 		(uuid "1032ec10-8275-486b-b234-caccbeab0b1e")
 	)
-	(label "USB_D-"
-		(at 100.33 88.9 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "10d5564a-deff-4155-9168-bacdb15ea31f")
-	)
 	(label "SPI1_SDI"
 		(at 191.77 104.14 180)
 		(effects
@@ -8799,16 +8789,6 @@
 			(justify right bottom)
 		)
 		(uuid "311f55ad-2bfa-40ad-8253-0e737b5631bf")
-	)
-	(label "USB_D+"
-		(at 100.33 86.36 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "342063fa-f2c5-4fb3-a1f7-5f23cc968b51")
 	)
 	(label "XIN"
 		(at 115.57 116.84 0)
@@ -8990,6 +8970,16 @@
 		)
 		(uuid "90e6b4fb-b284-4988-aef0-72aac63b61b5")
 	)
+	(label "USB_D-"
+		(at 100.33 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9111545b-59df-4ddf-96cf-672011e18a6c")
+	)
 	(label "SPI1_SDO"
 		(at 199.39 111.76 180)
 		(effects
@@ -9009,6 +8999,16 @@
 			(justify left bottom)
 		)
 		(uuid "b0d46f09-0ee5-4765-8423-15cb0c2b1115")
+	)
+	(label "USB_D+"
+		(at 100.33 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b8eb3236-d9da-4e4c-8c31-16388dc6f194")
 	)
 	(label "RUN"
 		(at 26.67 185.42 0)
