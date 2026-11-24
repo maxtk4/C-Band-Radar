@@ -63,7 +63,7 @@
           "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.025,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
           "thermal_relief_gap": 0.35,
           "thermal_relief_spoke_width": 0.5
@@ -81,7 +81,24 @@
           "width": 0.9
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "hole_clearance|122955000|91840000|30edd2a2-cc48-4e30-b415-11950a348c05|b6c25bfe-c571-4b5c-b152-bf07916a2485",
+          "USB hardware -- ignore"
+        ],
+        [
+          "hole_clearance|122955000|91840000|950c1c13-f557-4a33-a07f-51fbd82f4412|b6c25bfe-c571-4b5c-b152-bf07916a2485",
+          "also usb hardware also ignore"
+        ],
+        [
+          "hole_clearance|122955000|97940000|32823187-b0ed-4a62-810a-cdcce4c518dc|58b5c9c7-4681-43cf-96fc-380b151f1f82",
+          "also usb hardware -- ignore"
+        ],
+        [
+          "hole_clearance|122955000|97940000|8f07d8fa-b2b1-4275-aaa6-b3bf50355927|58b5c9c7-4681-43cf-96fc-380b151f1f82",
+          "USB hardware -- ignore"
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -167,7 +184,7 @@
         "min_track_width": 0.2,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
