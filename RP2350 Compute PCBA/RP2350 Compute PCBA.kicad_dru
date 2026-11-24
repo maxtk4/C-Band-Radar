@@ -1,0 +1,219 @@
+(version 1)
+
+# =============================================================================
+# JLCPCB rigid FR-4 design rules for KiCad (7.x / 8.x / 9.x)
+# Source: https://jlcpcb.com/capabilities/pcb-capabilities  (checked 2026-11-23)
+#
+# INSTALL
+#   Rename/copy to  <your_project_name>.kicad_dru  next to your .kicad_pro
+#   (KiCad loads custom rules from a file with the same basename as the project).
+#
+# DEFAULT PROFILE (active below)
+#   2-layer, 1 oz outer copper, standard (non-HDI) process, plated through vias,
+#   routed (not V-cut) outline, colored soldermask (not black/white).
+#   Overrides for other profiles are in the commented blocks at the end of the
+#   file. Uncomment them: KiCad uses the LAST matching rule, so later rules win.
+#
+# ALSO SET IN File > Board Setup > Design Rules > Constraints
+#   (these are the baseline; keep them equal to or looser than the rules below,
+#    otherwise they can flag things the rules here intentionally allow)
+#     Minimum clearance ........................ 0.1 mm
+#     Minimum track width ...................... 0.1 mm
+#     Minimum annular width .................... 0.05 mm
+#     Minimum via diameter ..................... 0.25 mm
+#     Copper to hole clearance ................. 0.2 mm
+#     Copper to edge clearance ................. 0.2 mm
+#     Minimum through hole ..................... 0.15 mm
+#     Hole to hole clearance ................... 0.2 mm
+#     Minimum uVia / blind-buried .............. not used (standard process)
+#   File > Board Setup > Board Stackup > Solder Mask/Paste:
+#     Solder mask minimum web width ............ 0.1 mm  (0.13 black/white, 0.2 for 2 oz)
+#     Solder mask expansion .................... 0 mm is allowed (JLC accepts 1:1);
+#                                                keep >= 0.09 mm from openings to
+#                                                neighbouring traces
+#
+# CONSTRAINTS JLCPCB LISTS THAT KICAD'S DRC CANNOT EXPRESS (check manually)
+#   - Same-net track spacing 0.25 mm; hatched-fill width/spacing 0.25 mm
+#   - NPTH pad copper ring >= 0.45 mm (leave NPTHs without copper, or size pads)
+#   - Min SMD pad 0.25 x 0.25 mm
+#   - BGA pad/trace rules (0.2 mm pads need ENIG; trace clearance >= 0.1 mm)
+#   - Via-in-pad (needs JLC filled & capped process) and plugged vias
+#     (<= 0.5 mm diameter, >= 0.35 mm from other mask openings)
+#   - Rectangular holes/slots without rounded corners are not supported
+#   - Trace coils not covered by mask: 0.25/0.25 mm, ENIG only
+#   - Board size, thickness, panel and V-cut/mouse-bite geometry
+#   - Silkscreen width:height ratio preferred 1:6
+#   - Blind/buried vias, HDI, backdrill, blind slots, press-fit tolerances
+# =============================================================================
+
+
+# ----------------------------- COPPER: TRACKS --------------------------------
+
+# 1 oz, 1/2-layer: 0.10 mm track, 0.10 mm space (also covers pad-to-track 0.10)
+(rule "JLC: min track width (1oz 2-layer)"
+  (constraint track_width (min 0.1mm))
+  (condition "A.Type == 'Track'"))
+
+(rule "JLC: min copper clearance (1oz 2-layer)"
+  (constraint clearance (min 0.1mm)))
+
+# SMD pad to SMD pad, different nets: 0.15 mm
+(rule "JLC: SMD pad to SMD pad clearance"
+  (constraint clearance (min 0.15mm))
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.Pad_Type == 'SMD' && B.Pad_Type == 'SMD'"))
+
+
+# ------------------------- VIAS AND DRILLED HOLES ----------------------------
+
+# Vias: 0.15 mm hole / 0.25 mm diameter minimum (0.20 mm hole is the preferred
+# minimum and avoids the extra-cost tiers; drop to 0.15 only when you must).
+(rule "JLC: via drill"
+  (constraint hole_size (min 0.15mm))
+  (condition "A.Type == 'Via'"))
+
+(rule "JLC: via diameter"
+  (constraint via_diameter (min 0.25mm))
+  (condition "A.Type == 'Via'"))
+
+# Via diameter should be >= 0.1 mm larger than the hole => 0.05 mm ring
+# (0.15 mm larger / 0.075 mm ring is preferred)
+(rule "JLC: via annular ring"
+  (constraint annular_width (min 0.05mm))
+  (condition "A.Type == 'Via'"))
+
+# Plated through-hole pads: ring >= 0.20 mm.
+# JLC absolute minimum is 0.18 mm (2-layer 1oz) / 0.15 mm (multilayer 1oz);
+# 0.254 mm for 2 oz. 0.25 mm+ is recommended.
+(rule "JLC: PTH pad annular ring"
+  (constraint annular_width (min 0.2mm))
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'"))
+
+# Pad drills: 0.15 mm absolute minimum (>= 0.5 mm recommended for PTH so mask/tin
+# doesn't clog the hole)
+(rule "JLC: PTH pad drill"
+  (constraint hole_size (min 0.15mm))
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'"))
+
+# Non-plated holes: 0.50 mm minimum
+(rule "JLC: NPTH drill"
+  (constraint hole_size (min 0.5mm))
+  (condition "A.Type == 'Pad' && A.Pad_Type == 'NPTH, mechanical'"))
+
+# Hole-to-hole (edge to edge): pad holes 0.45 mm, via-to-via 0.20 mm
+(rule "JLC: hole to hole (pads / mixed)"
+  (constraint hole_to_hole (min 0.45mm)))
+
+(rule "JLC: hole to hole (via to via)"
+  (constraint hole_to_hole (min 0.2mm))
+  (condition "A.Type == 'Via' && B.Type == 'Via'"))
+
+# Via hole to track and NPTH to track: 0.20 mm
+(rule "JLC: via/NPTH hole to copper"
+  (constraint hole_clearance (min 0.2mm))
+  (condition "A.NetName != B.NetName"))
+
+# PTH hole to track: 0.28 mm minimum (0.35 mm recommended)
+(rule "JLC: PTH hole to track"
+  (constraint hole_clearance (min 0.28mm))
+  (condition "A.NetName != B.NetName && ((A.Type == 'Pad' && A.Pad_Type == 'Through-hole' && B.Type == 'Track') || (B.Type == 'Pad' && B.Pad_Type == 'Through-hole' && A.Type == 'Track'))"))
+
+
+# ------------------------- INNER LAYERS (multilayer) -------------------------
+# No effect on 2-layer boards.
+
+# Inner layer via hole to copper: 0.20 mm
+(rule "JLC: inner layer via hole to copper"
+  (layer "inner")
+  (constraint hole_clearance (min 0.2mm))
+  (condition "A.NetName != B.NetName && (A.Type == 'Via' || B.Type == 'Via')"))
+
+# Inner layer PTH pad hole to copper: 0.30 mm
+(rule "JLC: inner layer PTH hole to copper"
+  (layer "inner")
+  (constraint hole_clearance (min 0.3mm))
+  (condition "A.NetName != B.NetName && ((A.Type == 'Pad' && A.Pad_Type == 'Through-hole') || (B.Type == 'Pad' && B.Pad_Type == 'Through-hole'))"))
+
+
+# ------------------------------- BOARD EDGE ----------------------------------
+
+# Routed outline / routed slots: copper >= 0.20 mm from edge
+# (V-cut needs 0.40 mm: see optional block below)
+(rule "JLC: copper to routed edge"
+  (constraint edge_clearance (min 0.2mm)))
+
+
+# ------------------------------- SILKSCREEN ----------------------------------
+
+# Line width >= 0.15 mm, text height >= 1.0 mm (40 mil)
+(rule "JLC: silkscreen text size"
+  (constraint text_thickness (min 0.15mm))
+  (constraint text_height (min 1.0mm))
+  (condition "A.Layer == 'F.Silkscreen' || A.Layer == 'B.Silkscreen'"))
+
+# Pad to silkscreen: 0.15 mm
+(rule "JLC: silkscreen to pad"
+  (constraint silk_clearance (min 0.15mm)))
+
+
+# =============================================================================
+# OPTIONAL OVERRIDES: uncomment the block(s) that match your order.
+# They come last so they take precedence over the defaults above.
+# =============================================================================
+
+# ---- Multilayer (4+ layers), 1 oz: 0.09 / 0.09 mm (3 mil only in BGA fan-out) --
+# (rule "JLC: multilayer track width 1oz"
+#   (constraint track_width (min 0.09mm))
+#   (condition "A.Type == 'Track'"))
+# (rule "JLC: multilayer clearance 1oz"
+#   (constraint clearance (min 0.09mm)))
+# (rule "JLC: multilayer PTH annular ring"
+#   (constraint annular_width (min 0.15mm))
+#   (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'"))
+
+# ---- 2 oz outer copper -------------------------------------------------------
+#   2-layer: 0.16 / 0.16 mm      multilayer: 0.15 / 0.15 mm
+# (rule "JLC: 2oz track width"
+#   (constraint track_width (min 0.16mm))
+#   (condition "A.Type == 'Track'"))
+# (rule "JLC: 2oz clearance"
+#   (constraint clearance (min 0.16mm)))
+# (rule "JLC: 2oz PTH annular ring"
+#   (constraint annular_width (min 0.254mm))
+#   (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole'"))
+
+# ---- 2-layer heavy copper (pick one weight) ----------------------------------
+#   2.5 oz: 0.20 / 0.20 mm    3.5 oz: 0.25 / 0.25 mm    4.5 oz: 0.30 / 0.30 mm
+# (rule "JLC: heavy copper track width"
+#   (constraint track_width (min 0.2mm))
+#   (condition "A.Type == 'Track'"))
+# (rule "JLC: heavy copper clearance"
+#   (constraint clearance (min 0.2mm)))
+
+# ---- V-cut panel edges: copper >= 0.4 mm from the cut ------------------------
+# (rule "JLC: copper to V-cut edge"
+#   (constraint edge_clearance (min 0.4mm)))
+
+# ---- Castellated holes: no copper-to-edge restriction on the half-holes ------
+# (JLC wants hole dia >= 0.5 mm, hole-to-board-edge >= 1 mm, hole-to-hole
+#  >= 0.5 mm, board >= 10 x 10 mm and >= 0.6 mm thick, which are not checked here.)
+# (rule "JLC: castellated pads edge exemption"
+#   (constraint edge_clearance (min -1mm))
+#   (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole' && A.Fabrication_Property == 'Castellated pad'"))
+
+# ---- Slots (KiCad 8+, uses oval-hole size properties) ------------------------
+#   Plated slot width: 0.5 mm (2-layer) / 0.35 mm (multilayer), length >= 2 x width
+#   Non-plated slot width: 1.0 mm
+# (rule "JLC: plated slot width"
+#   (constraint hole_size (min 0.5mm))
+#   (condition "A.Type == 'Pad' && A.Pad_Type == 'Through-hole' && A.Hole_Size_X != A.Hole_Size_Y"))
+# (rule "JLC: non-plated slot width"
+#   (constraint hole_size (min 1.0mm))
+#   (condition "A.Type == 'Pad' && A.Pad_Type == 'NPTH, mechanical' && A.Hole_Size_X != A.Hole_Size_Y"))
+
+# ---- Using 0.10 mm / 0.20 mm microvias (board <= 1 mm thick, ENIG/OSP, extra cost)
+# (rule "JLC: 0.1mm via drill"
+#   (constraint hole_size (min 0.1mm))
+#   (condition "A.Type == 'Via'"))
+# (rule "JLC: 0.2mm via diameter"
+#   (constraint via_diameter (min 0.2mm))
+#   (condition "A.Type == 'Via'"))
