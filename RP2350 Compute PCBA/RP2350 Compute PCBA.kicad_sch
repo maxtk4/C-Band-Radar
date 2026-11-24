@@ -8760,16 +8760,6 @@
 		)
 		(uuid "1f9140b6-b7ff-4346-83a0-5864e1c94ae9")
 	)
-	(label "SPI1_CS"
-		(at 270.51 138.43 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "26ab2799-be94-4cb4-a3e9-5ac15907f887")
-	)
 	(label "USB_D-"
 		(at 236.22 41.91 180)
 		(effects
@@ -8789,6 +8779,16 @@
 			(justify right bottom)
 		)
 		(uuid "311f55ad-2bfa-40ad-8253-0e737b5631bf")
+	)
+	(label "SPI1_CS"
+		(at 270.51 143.51 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "37737c13-9902-4d52-8bf9-daa9d62fc40d")
 	)
 	(label "XIN"
 		(at 115.57 116.84 0)
@@ -8820,16 +8820,6 @@
 		)
 		(uuid "3b23220b-2596-4694-b4fe-11f5ac08b8dd")
 	)
-	(label "SPI1_SDO"
-		(at 270.51 148.59 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "41994bb9-834b-4b1a-9b7b-7c06c1f2c4bc")
-	)
 	(label "RUN"
 		(at 115.57 78.74 0)
 		(effects
@@ -8839,6 +8829,16 @@
 			(justify left bottom)
 		)
 		(uuid "4cb13cf3-ffb1-4b20-9491-784e7c412532")
+	)
+	(label "SPI1_SDO"
+		(at 270.51 133.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4f2e8a79-f5b6-4482-97bb-ac0cad0958b2")
 	)
 	(label "nQSPI_SS"
 		(at 16.51 134.62 0)
@@ -8859,16 +8859,6 @@
 			(justify right bottom)
 		)
 		(uuid "5dde73bd-7ad7-4121-87a0-89bb1ab309cf")
-	)
-	(label "SPI1_SDI"
-		(at 270.51 133.35 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5ea9578b-adb9-493e-9a4d-a1ddaf7a2a0e")
 	)
 	(label "QSPI_SCLK"
 		(at 107.95 99.06 0)
@@ -8960,6 +8950,16 @@
 		)
 		(uuid "8a1ce3fa-4510-466a-a7a2-bc3c815920af")
 	)
+	(label "SPI1_SDI"
+		(at 270.51 148.59 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "90aaf9b7-e9d8-49e3-9544-a2ba1cb8839b")
+	)
 	(label "QSPI_SD2"
 		(at 107.95 106.68 0)
 		(effects
@@ -8989,6 +8989,16 @@
 			(justify right bottom)
 		)
 		(uuid "93803cb8-6f44-4498-8ee6-0f21f79402ab")
+	)
+	(label "SPI1_SCK"
+		(at 270.51 138.43 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9504fc89-83cf-40c0-9e69-6c022d6e109c")
 	)
 	(label "QSPI_SD0"
 		(at 107.95 101.6 0)
@@ -9059,16 +9069,6 @@
 			(justify right bottom)
 		)
 		(uuid "dc1c1ddb-3a7d-4a85-9c12-a263934032b4")
-	)
-	(label "SPI1_SCK"
-		(at 270.51 143.51 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dc297411-352a-4c40-aa0e-1cc08a6f57ff")
 	)
 	(label "SPI2_SDI"
 		(at 231.14 135.89 0)
